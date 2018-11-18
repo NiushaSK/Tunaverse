@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="css/main.css" type="text/css" rel="stylesheet"/>		
+    <title>Your fish</title>
+</head>
+<body>
+	<div id="wrapper" class="container">
+		<div class="fish-box">
+			<span class="fish_tag"></span>
+			<% for(var i = 0; i < rows.length; i++) { %>						
+				<a href="fish_detail.html"><img alt="" src="images/tuna.jpg"></a><br/>
+				<a href="fish_detail.html" class="title"><%= rows[i].fish_name %></a><br/>
+				<table>
+					<tr>
+						<td> Age: <%= rows[i].fish_age %> </td> 
+	                	<td> Size: <%= rows[i].fish_size %> </td> 
+	                	<td> Race: <%= rows[i].fish_race %> </td> 
+					</tr>
+				</table>
+				<p class="price"><%= rows[i].price %>$</p>
+			<%}%>
+		</div>
+	</div>
+
+    <table>
+        <% for(var i = 0; i < rows.length; i++) { %>
+            <tr>
+                <td> <%= rows[i].fish_name %> </td>
+                <td> <%= rows[i].fish_age %> </td>
+                <td> <%= rows[i].fish_size %> </td>
+                <td> <%= rows[i].fish_race %> </td>
+            </tr>
+        <%}%>
+    </table>
+	<a href="shop">Buy a new fish</a>
+</body>
+</html>
