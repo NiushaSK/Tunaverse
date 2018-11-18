@@ -45,15 +45,17 @@ app.listen(3000, function(){
 
 //CSS Sheet initialisieren
 app.use(express.static(__dirname + "/stylings"));
-
 app.use(express.static(__dirname + "/js"));
 
+
+//Variables used to transfer data from one page to another
+var fish_sql;
 
 // ====================================================
 
 
 
-app.get('/homepage2', function(req, res) {
+app.get(['/','/homepage2'], function(req, res) {
   res.render('homepage2');
 });
 
@@ -182,7 +184,7 @@ app.post('/edit', function (req, res){
 
 
 app.get('/shop', (req, res) => {
-	const sql = `SELECT fish.name, fish.age, fish.race, fish.size, fish.price FROM fish LEFT JOIN user ON fish.userid=user.userid WHERE fish.userid IS NULL`;
+	const sql = `SELECT fish.name, fish.race, fish.price, fish.image FROM fish LEFT JOIN user ON fish.userid=user.userid WHERE fish.userid IS NULL`;
 	console.log(sql);
 	db.all(sql, function(err, rows){
 		if (err){
@@ -190,16 +192,16 @@ app.get('/shop', (req, res) => {
 		}
 		else{
 			console.log(rows);
-			res.render('fish', {'rows':  rows || []});
+			res.render('shop', {'rows':  rows || []});
 		}
 	})
 });
 
-app.get('/owned_fish', function(req, res) {
+app.get('/fish', function(req, res) {
 	const user = req.session['user'];
     db.get(`SELECT * FROM user WHERE name='${user}'`,(error,row)=>{
 	    var userid = row.userid;
-		const sql = `SELECT fish.name, fish.age, fish.race, fish.size, fish.price FROM fish LEFT JOIN user ON fish.userid=user.userid WHERE fish.userid=${userid}`;
+		const sql = `SELECT fish.name, fish.race, fish.image FROM fish LEFT JOIN user ON fish.userid=user.userid WHERE fish.userid=${userid}`;
 		console.log(sql);
 		db.all(sql, function(err, rows){
 			if (err){
@@ -213,8 +215,9 @@ app.get('/owned_fish', function(req, res) {
 	});
 });
 
+
 app.get('/fish_details', (req, res) => {
-	const sql = `SELECT fish.name, fish.age, fish.race, fish.size, fish.price FROM fish LEFT JOIN user ON fish.userid=user.userid WHERE fish.userid=1`;
+	const sql = `SELECT fish.name, fish.age, fish.race, fish.size, fish.price, fish.image FROM fish LEFT JOIN user ON fish.userid=user.userid WHERE fish.userid=1`;
 	console.log(sql);
 	db.all(sql, function(err, rows){
 		if (err){
