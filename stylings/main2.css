@@ -148,9 +148,10 @@ section.homepage-slider{
 --------------------*/
 
 .button-link {
+	background-color: #fff;
+	position: relative;
 	color:#eb4800;
 	padding: 0.5rem;
-	transition: color 0.2s ease, padding 0.2s ease;
 }
 
 .button-link:hover:enabled{
