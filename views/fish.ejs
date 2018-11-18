@@ -31,12 +31,12 @@
 			<span class="fish_tag"></span>
 			<% for(var i = 0; i < rows.length; i++) { %>						
 				<a href="fish_details"><img alt="" src="images/tuna.jpg"></a><br/>
-				<a href="fish_details" class="title"><%= rows[i].fish_name %></a><br/>
+				<a href="fish_details" class="title"><%= rows[i].name %></a><br/>
 				<table>
 					<tr>
-						<td> Age: <%= rows[i].fish_age %> </td> 
-	                	<td> Size: <%= rows[i].fish_size %> </td> 
-	                	<td> Race: <%= rows[i].fish_race %> </td> 
+						<td> Age: <%= rows[i].age %> </td> 
+	                	<td> Size: <%= rows[i].size %> </td> 
+	                	<td> Race: <%= rows[i].race %> </td> 
 					</tr>
 				</table>
 				<p class="price"><%= rows[i].price %>$</p>
@@ -47,10 +47,10 @@
     <table>
         <% for(var i = 0; i < rows.length; i++) { %>
             <tr>
-                <td> <%= rows[i].fish_name %> </td>
-                <td> <%= rows[i].fish_age %> </td>
-                <td> <%= rows[i].fish_size %> </td>
-                <td> <%= rows[i].fish_race %> </td>
+                <td> <%= rows[i].name %> </td>
+                <td> <%= rows[i].age %> </td>
+                <td> <%= rows[i].size %> </td>
+                <td> <%= rows[i].race %> </td>
             </tr>
         <%}%>
     </table>
