@@ -87,6 +87,10 @@ section.homepage-slider{
 	position: relative;
 	border-bottom:1px dotted #eb4800;
 	padding-bottom:1px;
+	width: 1080px;
+	background-color:#fff;
+	padding:10px;
+	margin: 40px auto -44px auto;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -102,9 +106,6 @@ section.homepage-slider{
 /* top bar
 ----------------------------------------------------------------------------- */
 #top-bar{
-	z-index: 4;
-	position: -webkit-sticky; /* Safari */
-    position: sticky;
 	background-color:#fff;
 	padding:10px;
 	margin: 20px auto -22px auto;
@@ -137,10 +138,12 @@ section.homepage-slider{
 }
 
 .container {
+	position: -webkit-sticky; /* Safari */
+    position: sticky;
 	top: 0;
-	margin-right: auto;
-	margin-left: auto;
-	*zoom: 1;
+  margin-right: auto;
+  margin-left: auto;
+  *zoom: 1;
 }
 
 
@@ -154,6 +157,9 @@ section.homepage-slider{
 	border-radius: 8px;
 	background-color: #e7e7e7;
 	position: absolute;
+	background-color: #fff;
+	position: relative;
+	color:#eb4800;
 	padding: 0.5rem;
 }
 
