@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="css/main.css" type="text/css" rel="stylesheet"/>		
+	<link rel="stylesheet" type="text/css" href="main2.css">		
     <title>Your fish</title>
 </head>
 <body>
+<div id="top-bar" class="container">
+			<div class="row">
+				<div class="span4">
+					<form method="POST" class="search_form">
+						<input type="text" class="input-block-level search-query" Placeholder="Search..">
+					</form>
+				</div>
+				<div class="span8">
+					<div class="account pull-right">
+						<ul class="user-menu">	
+							<li><a href="homepage2">Home</a></li>						
+							<li><a href="shop">Shop</a></li>						
+							<li><a href="profile">My Profile</a></li>
+							<li><a href="cart.html">Your Cart</a></li>
+							<li><a href="checkout.html">Checkout</a></li>					
+							<li><a href="login">Login</a></li>		
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div><br>
 	<div id="wrapper" class="container">
 		<div class="fish-box">
 			<span class="fish_tag"></span>
 			<% for(var i = 0; i < rows.length; i++) { %>						
-				<a href="fish_detail.html"><img alt="" src="images/tuna.jpg"></a><br/>
-				<a href="fish_detail.html" class="title"><%= rows[i].fish_name %></a><br/>
+				<a href="fish_details"><img alt="" src="images/tuna.jpg"></a><br/>
+				<a href="fish_details" class="title"><%= rows[i].fish_name %></a><br/>
 				<table>
 					<tr>
 						<td> Age: <%= rows[i].fish_age %> </td> 

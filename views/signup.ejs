@@ -1,13 +1,34 @@
-<!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Sign up!</title>
+		<title>Register</title>
+		<link rel="stylesheet" type="text/css" href="main2.css">
 	</head>
 
 	<body>
+	<div id="top-bar" class="container">
+			<div class="row">
+				<div class="span4">
+					<form method="POST" class="search_form">
+						<input type="text" class="input-block-level search-query" Placeholder="Search..">
+					</form>
+				</div>
+				<div class="span8">
+					<div class="account pull-right">
+						<ul class="user-menu">	
+							<li><a href="homepage2">Home</a></li>						
+							<li><a href="shop.html">Shop</a></li>						
+							<li><a href="profile">My Profile</a></li>
+							<li><a href="cart.html">Your Cart</a></li>
+							<li><a href="checkout.html">Checkout</a></li>					
+							<li><a href="login">Login</a></li>		
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div> <br>
 		<form action="registrierung" method="post">
 			Username: <input type="text" name="user"> <br>
-      E-Mail: <input type="text" name="email" <br>
+			E-Mail: <input type="text" name="email" <br>
 			Password: <input type="password" name="password"> <br>
 			<input type="submit" value="GO GO GO!" name="submit"><br>
 			<a href="\login">Login</a>

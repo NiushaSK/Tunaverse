@@ -1,11 +1,9 @@
-<!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Edit Profile</title>
+    <head>
+        <title>Tunaverse</title>
 		<link rel="stylesheet" type="text/css" href="main2.css">
-	</head>
-
-	<body>
+    </head>
+    <body>
 	<div id="top-bar" class="container">
 			<div class="row">
 				<div class="span4">
@@ -15,7 +13,7 @@
 				</div>
 				<div class="span8">
 					<div class="account pull-right">
-						<ul class="user-menu">	
+						<ul class="user-menu">		
 							<li><a href="homepage2">Home</a></li>						
 							<li><a href="shop">Shop</a></li>						
 							<li><a href="profile">My Profile</a></li>
@@ -26,16 +24,24 @@
 					</div>
 				</div>
 			</div>
-		</div> <br>
-		<form action="edit" method="post">
-      Change E-Mail:<br>
-      New Email:<input type="text" name="new_email"<br>
-			Change password:<br>
-      New password:<input type="password" name="new_password"><br>
-			Please enter your old password to confirm:<br>
-			Old password:<input type="password" name="password"><br>
-			<input type="submit" value="Save Changes" name="submit"><br>
-			<a href="\profile">NOOO!!! I don't want to change something! :(</a>
-		</form>
-	</body>
+		</div>
+		<section  class="homepage-slider">
+						<li>
+							<img id="pos" src="images/banner-1.png" alt="" />
+						</li>		
+			</section>
+			<a id ="top-bar" class="button-link" href="signup">Register</a>
+		</div>	
+		
+		<br><br><br><br><br><br><br><br><br>
+		ABOUT <br> <br> <br>
+		<button class="scroll-down" onclick="scrollWin()" style="position:relative;"> </button>
+BBALSDBL <br> <br> <br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br>
+
+	<script>
+		function scrollWin() {
+		window.scrollBy(0, 100);
+		}
+	</script>
+    </body>
 </html>

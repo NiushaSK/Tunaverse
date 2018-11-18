@@ -1,6 +1,6 @@
 // Datenbank initialisieren
 const sqlite3 = require('sqlite3').verbose();
-let db = new sqlite3.Database('data.db',(error)=>{
+let db = new sqlite3.Database('user.db',(error)=>{
 		if(error){
 			console.error(error.message);
 		}else{
@@ -43,7 +43,20 @@ app.listen(3000, function(){
 	console.log("listening on 3000");
 });
 
-// ================================================================//
+//CSS Sheet initialisieren
+app.use(express.static(__dirname + "/stylings"));
+
+app.use(express.static(__dirname + "/js"));
+
+
+// ====================================================
+
+
+
+app.get('/homepage2', function(req, res) {
+  res.render('homepage2');
+});
+
 
 
 app.get('/success', (req, res) => {
