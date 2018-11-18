@@ -84,12 +84,13 @@ section#copyright{
 }
 
 section.homepage-slider{
-	display: block;
-	border-bottom:1px dotted #eb4800;
-	margin: 20px 270px 20px 270px;
-	padding-bottom:1px;
-	background-color:#efeeed;
-	display: block;
+	width: 1080px;
+	background-color:#fff;
+	padding:10px;
+	margin: 40px auto -44px auto;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
 }
 
 #pos {
