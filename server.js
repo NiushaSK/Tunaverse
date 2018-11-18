@@ -28,7 +28,7 @@ app.use(session({
 }));
 
 // Passwort Verschlüsselung
-const passwordHash = require('password-hash');
+const bcrypt = require('bcrypt');
 
 // EJS Template Engine
 app.engine('.ejs', require('ejs').__express);
@@ -76,12 +76,13 @@ app.post('/registrierung', (req,res)=>{
 	//ABfrage von user input und abspeichern in variablen
 	const user = req.body["user"];
   var email = req.body["email"];
-	var pw = req.body["password"];
+	const pw = req.body["password"];
   var money = 100;
+	var hash = bcrypt.hashSync(pw, 10);
 
 //einfuegen des user inputs in die Datenbank
 //Achtet auf die Anfuehrungszeichen!
-	db.run(`INSERT INTO user (name, email, password, money) VALUES ('${user}', '${email}', '${pw}', '${money}')`,(error)=>{
+	db.run(`INSERT INTO user (name, email, password, money) VALUES ('${user}', '${email}', '${hash}', '${money}')`,(error)=>{
 		if(error){
 			console.error(error.message);
 		}
@@ -96,13 +97,14 @@ app.post('/registrierung', (req,res)=>{
 app.post('/anmelden', function(req, res){
 	//Die eingabe aus dem body des requests (login.ejs file)
 	const user = req.body["user"];
-	var password = req.body["password"];
+	const pw = req.body["password"];
+	var hash = bcrypt.hashSync(pw, 10);
 	db.get(`SELECT * FROM user WHERE name='${user}'`,(error,row)=>{
 		//gibt es einen Eintrag in der Datenbank mit dem Usernamen der
 		//in der Variable user gespeichert ist
 		if(row != undefined){
 			//Wenn ja, schau ob das Password richtig ist
-			if(password == row.password){
+			if (bcrypt.compareSync(pw, hash) == true){
 				//hat geklappt
 				// Sessionvariable setzen
 				req.session['user'] = user;
