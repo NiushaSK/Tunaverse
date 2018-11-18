@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 
 // Sessionvariablen
 const session = require('express-session');
-app.use(session({ 
+app.use(session({
 	secret: 'example',
 	resave: false,
 	saveUninitialized: true
@@ -207,7 +207,7 @@ app.get('/owned_fish', function(req, res) {
 			console.log(rows);
 			res.render('fish', {'rows':  rows || []});
 		}
-	})	 
+	})
 });
 
 app.get('/fish_details', (req, res) => {
