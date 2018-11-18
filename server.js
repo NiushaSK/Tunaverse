@@ -182,7 +182,7 @@ app.post('/edit', function (req, res){
 
 
 app.get('/shop', (req, res) => {
-	const sql = `SELECT fish.fish_name, fish.fish_age, fish.fish_race, fish.fish_size, fish.price FROM fish LEFT JOIN users ON fish.userid=users.userid WHERE fish.userid IS NULL`;
+	const sql = `SELECT fish.name, fish.age, fish.race, fish.size, fish.price FROM fish LEFT JOIN user ON fish.userid=user.userid WHERE fish.userid IS NULL`;
 	console.log(sql);
 	db.all(sql, function(err, rows){
 		if (err){
@@ -197,7 +197,7 @@ app.get('/shop', (req, res) => {
 
 app.get('/owned_fish', function(req, res) {
 
-	const sql = `SELECT fish.fish_name, fish.fish_age, fish.fish_race, fish.fish_size, fish.price FROM fish LEFT JOIN users ON fish.userid=users.userid WHERE fish.userid=1`;
+	const sql = `SELECT fish.name, fish.age, fish.race, fish.size, fish.price FROM fish LEFT JOIN user ON fish.userid=user.userid WHERE fish.userid=1`;
 	console.log(sql);
 	db.all(sql, function(err, rows){
 		if (err){
@@ -211,7 +211,7 @@ app.get('/owned_fish', function(req, res) {
 });
 
 app.get('/fish_details', (req, res) => {
-	const sql = `SELECT fish.fish_name, fish.fish_age, fish.fish_race, fish.fish_size, fish.price FROM fish LEFT JOIN users ON fish.userid=users.userid WHERE fish.userid=1`;
+	const sql = `SELECT fish.name, fish.age, fish.race, fish.size, fish.price FROM fish LEFT JOIN user ON fish.userid=user.userid WHERE fish.userid=1`;
 	console.log(sql);
 	db.all(sql, function(err, rows){
 		if (err){
